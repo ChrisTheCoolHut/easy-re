@@ -34,10 +34,7 @@ pg.explore(find=int(args.end,0),avoid=avoidList)
 if len(pg.found):
     print("[+] Found path(s)")
     for path in pg.found:
-        try:
-            print("[+] STDIN: {}".format(path.state.posix.dumps(0)))
-            print("[+] STDOUT: {}".format(path.state.posix.dumps(1)))
-            if args.args:
-                print("[+] argv1: {}".format(path.state.se.any_str(argv1)))
-        except:
-            print("[-] Error printing data. Found paths likely unsatisfiable")
+        print("[+] STDIN: {}".format(path.posix.dumps(0)))
+        print("[+] STDOUT: {}".format(path.posix.dumps(1)))
+        if args.args:
+            print("[+] argv1: {}".format(path.se.any_str(argv1)))
