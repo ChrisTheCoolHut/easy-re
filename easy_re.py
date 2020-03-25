@@ -23,7 +23,7 @@ p = angr.Project(args.file,load_options={"auto_load_libs":False})
 argv1 = claripy.BVS("argv1", 8 * 100) # Setting to 100 max chars for argument
 state = None
 if args.args:
-    state = p.factory.path(args=[args.file,argv1])
+    state = p.factory.entry_state(args=[args.file,argv1])
 else:
     state = p.factory.blank_state(addr=int(args.start,0))
 
@@ -37,4 +37,4 @@ if len(pg.found):
         print("[+] STDIN: {}".format(path.posix.dumps(0)))
         print("[+] STDOUT: {}".format(path.posix.dumps(1)))
         if args.args:
-            print("[+] argv1: {}".format(path.se.any_str(argv1)))
+            print("[+] argv1: {}".format(path.se.eval(argv1, cast_to=bytes)))
