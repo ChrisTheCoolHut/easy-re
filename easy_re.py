@@ -84,4 +84,4 @@ if len(pg.found):
         print("[+] STDIN: {}".format(path.posix.dumps(0)))
         print("[+] STDOUT: {}".format(path.posix.dumps(1)))
         if args.args:
-            print("[+] argv1: {}".format(path.se.eval(argv1, cast_to=bytes)))
+            print("[+] argv1: {}".format(path.solver.eval(argv1, cast_to=bytes)))
