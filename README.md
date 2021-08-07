@@ -18,6 +18,11 @@
 
 ```
 
+# Install
+```
+pip install easy_re
+```
+
 # Solve for STDIN in a program
  -  -f for the filename
  -  -s for the address to start at
